@@ -18,9 +18,7 @@ From version 4.1.0, Sopel supports bitwise channel permissions. `bot.privileges`
 `multi-prefix` is enabled by default on any server which supports it.
 
 #### SASL Authentication
-If the server supports SASL authentication, and the `auth_method` value in the `[core]` section of the config file is set to `sasl`, Sopel will attempt to authenticate with it. By default, the authentication mechanism given is `PLAIN`; this can be changed with the `auth_target` value in the `[core]` section of the config. No other mechanism has been tested. Regardless of the mechanism, the token sent will be a base-64 encoding of `'\0'.join((nick, nick, pass))`, where `nick` is the `auth_username` field of the `[core]` section of the config, or the bot's nickname, and `pass` is the provided SASL password.
-
-Sopel can also be configured for SASL by specifying `server_auth_method = sasl`, `server_auth_username`, `server_auth_password`, `server_auth_sasl_mech` in place of the `[core]` fields of the bot config named in the preceding paragraph. The `auth_*` family of values takes precedence over these if both are set.
+If the server supports SASL authentication, and a `sasl_password` value is set in the `[core]` section of the config file, Sopel will attempt to authenticate with it. By default, the authentication mechanism given is `PLAIN`; this can be changed with the `sasl_mechanism` value in the `[core]` section of the config. No other mechanism has been tested. Regardless of the mechanism, the token sent will be a base-64 encoding of `'\0'.join((nick, nick, pass))`, where `nick` is the bot's nickname and `pass` the provided SASL password.
 
 ### Optional Extensions
 #### `account-notify`
